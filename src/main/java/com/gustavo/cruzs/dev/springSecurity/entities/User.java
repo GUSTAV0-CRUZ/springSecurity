@@ -4,6 +4,7 @@ import com.gustavo.cruzs.dev.springSecurity.entities.enums.RolesUserEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.jspecify.annotations.NullMarked;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -46,26 +47,31 @@ public class User implements Serializable, UserDetails {
     this.authority = authority;
   }
 
+  @NullMarked
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
     return Collections.singletonList(new SimpleGrantedAuthority(authority.getValue()));
   }
 
+  @NullMarked
   @Override
   public String getUsername() {
     return getEmail();
   }
 
+  @NullMarked
   @Override
   public boolean isAccountNonLocked() {
     return true;
   }
 
+  @NullMarked
   @Override
   public boolean isCredentialsNonExpired() {
     return true;
   }
 
+  @NullMarked
   @Override
   public boolean isEnabled() {
     return true;
