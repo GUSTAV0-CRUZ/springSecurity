@@ -1,5 +1,6 @@
 package com.gustavo.cruzs.dev.springSecurity.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gustavo.cruzs.dev.springSecurity.entities.enums.RolesUserEnum;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -13,7 +14,6 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -32,6 +32,7 @@ public class User implements Serializable, UserDetails {
   @Column(unique = true, nullable = false)
   private String email;
 
+  @JsonIgnore
   @Column(nullable = false)
   private String password;
 
@@ -39,12 +40,11 @@ public class User implements Serializable, UserDetails {
   @Column(nullable = false)
   private RolesUserEnum authority = RolesUserEnum.ROLE_COMMON;
 
-  public User(UUID id, String name, String email, String password, RolesUserEnum authority) {
+  public User(UUID id, String name, String email, String password) {
     this.id = id;
     this.name = name;
     this.email = email;
     this.password = password;
-    this.authority = authority;
   }
 
   @NullMarked
