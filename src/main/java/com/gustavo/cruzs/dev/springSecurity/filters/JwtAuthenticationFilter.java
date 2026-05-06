@@ -1,13 +1,11 @@
 package com.gustavo.cruzs.dev.springSecurity.filters;
 
-import com.gustavo.cruzs.dev.springSecurity.entities.User;
 import com.gustavo.cruzs.dev.springSecurity.repositories.UserRepository;
 import com.gustavo.cruzs.dev.springSecurity.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;

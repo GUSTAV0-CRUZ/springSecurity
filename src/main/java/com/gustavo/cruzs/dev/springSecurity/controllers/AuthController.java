@@ -1,6 +1,5 @@
 package com.gustavo.cruzs.dev.springSecurity.controllers;
 
-import com.auth0.jwt.interfaces.DecodedJWT;
 import com.gustavo.cruzs.dev.springSecurity.dtos.CreateUserDto;
 import com.gustavo.cruzs.dev.springSecurity.dtos.LoginDto;
 import com.gustavo.cruzs.dev.springSecurity.entities.User;
