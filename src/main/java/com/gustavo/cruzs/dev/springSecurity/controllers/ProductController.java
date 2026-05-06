@@ -4,9 +4,7 @@ import com.gustavo.cruzs.dev.springSecurity.dtos.CreateProductDto;
 import com.gustavo.cruzs.dev.springSecurity.entities.Product;
 import com.gustavo.cruzs.dev.springSecurity.service.ProductService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -26,7 +24,8 @@ public class ProductController {
     return ResponseEntity.ok().body(this.productService.findAll());
   }
 
-  public ResponseEntity<Product> create(CreateProductDto createProductDto) {
+  @PostMapping
+  public ResponseEntity<Product> create(@RequestBody CreateProductDto createProductDto) {
     var product = this.productService.create(createProductDto);
     URI uri = ServletUriComponentsBuilder
         .fromCurrentRequest()
